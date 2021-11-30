@@ -34,6 +34,7 @@ After training, user should expect the model performance (accuracy) to be 87-89,
 ### Dev environment
 - Python 3.8.5
 - transfomers 4.11.2
+- A-100 GPU
 
 ### API
 ```python
