@@ -38,7 +38,13 @@ After training, user should expect the model performance (accuracy) to be 87-89,
 
 ### API
 ```python
-from models.modeling_roberta import WARPPromptedRobertaForMaskedLM, WARPPromptedRobertaForSequenceClassification
+# importing RoBERTa based API
+from models.modeling_roberta import WARPPromptedRobertaForMaskedLM, WARPPromptedRobertaForSequenceClassification, WARPPromptedRobertaForQuestionAnswering
+# importing Bert based API
+from models.modeling_bert import WARPPromptedBertForMaskedLM, WARPPromptedBertForSequenceClassification, WARPPromptedBertForQuestionAnswering
+# importing XLM-RoBERTa based API
+from models.modeling_roberta import WARPPromptedXLMRobertaForMaskedLM, WARPPromptedXLMRobertaForSequenceClassification, WARPPromptedXLMRobertaForQuestionAnswering
+# importing function for randomly masking inputs
 from utils import random_mask_input_ids
 
 # initialize model for MNLI task
@@ -66,6 +72,15 @@ features["input_ids"] = torch.cat([torch.full((features["input_ids"].shape[0], n
 
 # randomly mask input ids for MLM task
 features['input_ids'] = random_mask_input_ids(features['input_ids'], mask_token_id, prob = .15)
+
+# initialize model for question answering (QA)
+model = WARPPromptedRobertaForQuestionAnswering(
+            pretrained_backbone_path = "roberta-large",
+            n_prompts = 4,
+            seed_token_id_for_prompts_embeddings = 50264,
+            pretrained_prompts_path = None,
+            freeze_qa_outputs_layer = False,
+        )
 ```
 
 ### Reference
