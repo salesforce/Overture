@@ -2,7 +2,8 @@ import torch
 import random
 import numpy as np
 
-def set_seed(seed = 0):
+
+def set_seed(seed=0):
     np.random.seed(seed)
     random.seed(seed)
     torch.manual_seed(seed)
@@ -10,9 +11,10 @@ def set_seed(seed = 0):
     torch.backends.cudnn.benchmark = False
     return True
 
+
 # generate randomly masked input_ids for MLM task
 # modified from https://towardsdatascience.com/masked-language-modelling-with-bert-7d49793e5d2c
-def random_mask_input_ids(input_ids, mask_token_id, exceptions, prob = .15):
+def random_mask_input_ids(input_ids, mask_token_id, exceptions, prob=0.15):
     """
     exceptions: list, token ids that should not be masked
     """

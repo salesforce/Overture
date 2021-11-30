@@ -24,24 +24,29 @@ Fundamentally, we designed the repository for researchers to easily experiment w
 A recently released library, [OpenPrompt](https://github.com/thunlp/OpenPrompt), is also intended to be a library for prompt tuning and we refer an interested practitioner to their repository for further exploration and comparisons. OpenPrompt may be a better fit for those who seek greater abstraction.
 
 # How to Use
+Inside the examples folder, we provide training code for RoBERTa-Large model on the MNLI dataset (in the style of [WARP](https://arxiv.org/abs/2101.00121)). To start training: 
+```bash 
+CUDA_VISIBLE_DEVICES=0 python train_warp_mnli.py --save_prompts_path dir_to_save_prompts --save_classifier_path dir_to_save_classifier 
+```
 
-As an example, we will prompt tune a RoBERTa-Large model on the MNLI dataset (in the style of [WARP](https://arxiv.org/abs/2101.00121)) and match the accuracy reported in the paper. 
+After training, user should expect the model performance (accuracy) to be 87-89, which matches the original [WARP](https://arxiv.org/abs/2101.00121) paper results.
+
 ### Dev environment
 - Python 3.8.5
 - transfomers 4.11.2
 
-### Use
+### API
 ```python
 from models.modeling_roberta import WARPPromptedRobertaForMaskedLM, WARPPromptedRobertaForSequenceClassification
 from utils import random_mask_input_ids
 
-# initialize model for sequence classification task
+# initialize model for MNLI task
 model = WARPPromptedRobertaForSequenceClassification(
                                                      pretrained_backbone_path = "roberta-large",                 
                                                      n_prompts = 8, 
-                                                     seed_token_id_for_prompts_embeddings = 50264,
+                                                     seed_token_id_for_prompts_embeddings = 50264, # token id for "<mask>"
                                                      mask_token_id = 50264,
-                                                     token_ids_for_classification_head = [10932, 38908], # "yes"/"instead"
+                                                     token_ids_for_classification_head = [1342, 12516, 10800], # 'ent', 'neutral', 'cont'
                                                      pretrained_prompts_path = None,
                                                      pretrained_classifier_path = None
                                                      )
