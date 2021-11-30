@@ -8,7 +8,7 @@
 Prompt Tuning has recently become an important research direction in Natural Language Processing. In contrast to classical fine-tuning, which involves optimizing the weights of the entire network, (one style of) prompt tuning keeps the large language model (a.k.a. the "backbone") frozen and instead prepends a few learnable vectors to each input which are learnt in order to accomplish a task. This brings the number of parameters to train from O(millions) down to a few thousand while still achieving similar levels of performance. There are other benefits that have been found in the research community for prompt tuned models when compared to classically trained models. 
 
 # Methods Supported
-The repository leverages the HuggingFace Transformers repository and currently, we support [WARP-like](https://arxiv.org/abs/2101.00121) prompt-tuning for text classification models. We plan on adding support for extractive question answering (e.g., SQuAD) and [Seq2Seq prompt-tuning](https://arxiv.org/abs/2104.08691v1) soon. If there is any other algorithm/method that you would like for us to prioritize, please write to us or file a feature request. Finally, we refer an interested reader to the [excellent survey](http://pretrain.nlpedia.ai/) on the topic for the various types of prompt tuning methods and their history. 
+The repository leverages the HuggingFace Transformers repository and currently, we support [WARP-like](https://arxiv.org/abs/2101.00121) prompt-tuning for masked language modeling(MLM), text classification models, and extractive question answering (e.g., SQuAD). We plan on adding support for [Seq2Seq prompt-tuning](https://arxiv.org/abs/2104.08691v1) soon. If there is any other algorithm/method that you would like for us to prioritize, please write to us or file a feature request. Finally, we refer an interested reader to the [excellent survey](http://pretrain.nlpedia.ai/) on the topic for the various types of prompt tuning methods and their history. 
 
 # Some Potential Extensions
 Here are some research ideas one could experiment with our codebase. Since the community is evolving rapidly, it is entirely possible that some of these ideas have already been studied. Please file an issue if that is the case, or if you want to contribute more ideas. 
@@ -34,7 +34,7 @@ After training, user should expect the model performance (accuracy) to be 87-89,
 ### Dev environment
 - Python 3.8.5
 - transfomers 4.11.2
-- A-100 GPU
+- A-100 GPU, CUDA Version: 11.0
 
 ### API
 ```python
