@@ -29,7 +29,11 @@ Inside the examples folder, we provide training code for RoBERTa-Large model on 
 CUDA_VISIBLE_DEVICES=0 python train_warp_mnli.py --save_prompts_path dir_to_save_prompts --save_classifier_path dir_to_save_classifier 
 ```
 
-After training, user should expect the model performance (accuracy) to be 87-89, which matches the original [WARP](https://arxiv.org/abs/2101.00121) paper results.
+After training, user should expect the model performance (accuracy) to be 87-89, which matches the original [WARP](https://arxiv.org/abs/2101.00121) paper results. The curve of training loss and evaluation of validation set from one run is shown below.
+
+Training Loss             |  Evaluation Accuracy on Validation Set
+:-------------------------:|:-------------------------:
+![train_loss_curve](./img/train_loss_warp_roberta_mnli.png)  |  ![eval_validation_value](./img/eval_acc_warp_roberta_mnli.png)
 
 ### Dev environment
 - Python 3.8.5
