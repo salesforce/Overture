@@ -93,4 +93,4 @@ model = WARPPromptedRobertaForQuestionAnswering(
 
 
 # Contact
-Please contact [Jin Qu](jqu@salesforce) if you are interested in collaboration, internship opportunities, or discussions. Feel free to create issues if you discover a bug or want to request new features for future release.
+Please contact [Jin Qu](jqu@salesforce.com) if you are interested in collaboration, internship opportunities, or discussions. Feel free to create issues if you discover a bug or want to request new features for future release.
