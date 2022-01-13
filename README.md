@@ -37,8 +37,8 @@ Training Loss             |  Evaluation Accuracy on Validation Set
 
 ### Dev environment
 - Python 3.8.5
-- transfomers 4.11.2
 - A-100 GPU, CUDA Version: 11.0
+- Other dependencies: [requirements.txt](./requirements.txt)
 
 ### API
 ```python
