@@ -87,6 +87,10 @@ model = WARPPromptedRobertaForQuestionAnswering(
         )
 ```
 
-### Reference
+# Reference
 - [WARP: Word-level Adversarial ReProgramming](https://aclanthology.org/2021.acl-long.381.pdf)
 - [The Power of Scale for Parameter-Efficient Prompt Tuning](https://arxiv.org/abs/2104.08691v1)
+
+
+# Contact
+Please contact [Jin Qu](jqu@salesforce) if you are interested in collaboration, internship opportunities, or discussions. Feel free to create issues if you discover a bug or want to request new features for future release.
